@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>angularjs页面传参</title>
+  <title>angularjs页面传参.html</title>
   <meta name="generator" content="Haroopad 0.13.1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -51,7 +51,7 @@
     <span class="hljs-keyword">var</span> product_id = $stateParams.product_id;
     <span class="hljs-built_in">console</span>.log(product_id);
 }]);
-</code></pre><p><a href="https://www.zhihu.com/question/33565135">以上参考这里</a></p><h5 id="网页常少不了使用超链接传值，这该怎样实现呢？"><a name="网页常少不了使用超链接传值，这该怎样实现呢？" href="#网页常少不了使用超链接传值，这该怎样实现呢？"></a>网页常少不了使用超链接传值，这该怎样实现呢？</h5><p><em>项目中使用的是ui-route</em></p><h6 id="例如有如下页面"><a name="例如有如下页面" href="#例如有如下页面"></a>例如有如下页面</h6><pre><code class="html" data-origin="<pre><code class=&quot;html&quot;>&amp;lt;h3&amp;gt;Route :WEB-INF/List.html&amp;lt;/h3&amp;gt;
+</code></pre><p><a href="https://www.zhihu.com/question/33565135">以上参考这里</a></p><h5 id="网页常少不了使用超链接传值，这该怎样是实现呢？"><a name="网页常少不了使用超链接传值，这该怎样是实现呢？" href="#网页常少不了使用超链接传值，这该怎样是实现呢？"></a>网页常少不了使用超链接传值，这该怎样是实现呢？</h5><p><em>项目中使用的是ui-route</em></p><h6 id="例如有如下页面"><a name="例如有如下页面" href="#例如有如下页面"></a>例如有如下页面</h6><pre><code class="html" data-origin="<pre><code class=&quot;html&quot;>&amp;lt;h3&amp;gt;Route :WEB-INF/List.html&amp;lt;/h3&amp;gt;
 &amp;lt;ul ng-controller=&quot;listCtl&quot;&amp;gt;
     &amp;lt;li ng-repeat=&quot;id in [1, 2, 3 ]&quot;&amp;gt;
         &amp;lt;a href=&quot;#/testlist/{{id}}&quot;&amp;gt;ID{{id}}&amp;lt;/a&amp;gt;
@@ -77,6 +77,76 @@
 </code></pre>">.controller(<span class="hljs-string">'detailCtl'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($scope, $routeParams)</span> </span>{
     $scope.id = $routeParams.id;
 });
+</code></pre><h5 id="angularjs定义全局变量"><a name="angularjs定义全局变量" href="#angularjs定义全局变量"></a>angularjs定义全局变量</h5><p><em>下面定义了一个test的全局变量</em></p><pre class="javascript hljs"><code class="javascript" data-origin="<pre><code class=&quot;javascript&quot;>var userInfoModule=angular.module('UserInfoModule',[]);
+
+userInfoModule.value('test',{&quot;test&quot;:&quot;33&quot;,&quot;test1&quot;:&quot;test111&quot;});
+
+userInfoModule.controller('UserinfoController',['$scope','test',function($scope,test) {
+    $scope.userInfo ={
+        email:'164925@qq.com',
+        password:'dsadfa',
+        autoLogin:true
+    }
+    console.log(test);
+    $scope.getFormData=function(){
+        console.log($scope.userInfo)
+        test={
+            test:'hahahaha',
+            test1:'hehehehehhe'
+        }
+        console.log(test);
+    }
+    $scope.setFormData=function(){
+        $scope.userInfo={
+            email:'dsdsdsd@126.com',
+            password:&quot;werrrrrrrr&quot;,
+            autoLogin:false
+        }
+    };
+    $scope.resetForm=function(){
+        console.log(test);
+        $scope.userInfo ={
+            email:'164925@qq.com',
+            password:'dsadfa',
+            autoLogin:true
+        }
+    };
+}])
+</code></pre>"><span class="hljs-keyword">var</span> userInfoModule=angular.module(<span class="hljs-string">'UserInfoModule'</span>,[]);
+
+userInfoModule.value(<span class="hljs-string">'test'</span>,{<span class="hljs-string">"test"</span>:<span class="hljs-string">"33"</span>,<span class="hljs-string">"test1"</span>:<span class="hljs-string">"test111"</span>});
+
+userInfoModule.controller(<span class="hljs-string">'UserinfoController'</span>,[<span class="hljs-string">'$scope'</span>,<span class="hljs-string">'test'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($scope,test)</span> </span>{
+    $scope.userInfo ={
+        email:<span class="hljs-string">'164925@qq.com'</span>,
+        password:<span class="hljs-string">'dsadfa'</span>,
+        autoLogin:<span class="hljs-literal">true</span>
+    }
+    <span class="hljs-built_in">console</span>.log(test);
+    $scope.getFormData=<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-built_in">console</span>.log($scope.userInfo)
+        test={
+            test:<span class="hljs-string">'hahahaha'</span>,
+            test1:<span class="hljs-string">'hehehehehhe'</span>
+        }
+        <span class="hljs-built_in">console</span>.log(test);
+    }
+    $scope.setFormData=<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+        $scope.userInfo={
+            email:<span class="hljs-string">'dsdsdsd@126.com'</span>,
+            password:<span class="hljs-string">"werrrrrrrr"</span>,
+            autoLogin:<span class="hljs-literal">false</span>
+        }
+    };
+    $scope.resetForm=<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-built_in">console</span>.log(test);
+        $scope.userInfo ={
+            email:<span class="hljs-string">'164925@qq.com'</span>,
+            password:<span class="hljs-string">'dsadfa'</span>,
+            autoLogin:<span class="hljs-literal">true</span>
+        }
+    };
+}])
 </code></pre>
 
 <footer style="position:fixed; font-size:.8em; text-align:right; bottom:0px; margin-left:-25px; height:20px; width:100%;">generated by <a href="http://pad.haroopress.com" target="_blank">haroopad</a></footer>
