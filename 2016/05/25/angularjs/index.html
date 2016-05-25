@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Welcome to W.chang blog</title>
+  <title>angularjs | Welcome to W.chang blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Welcome to W.chang blog">
-<meta property="og:url" content="https://wdchang.github.io/index.html">
+  <meta name="description" content="基于ui-router的页面跳转传参ui-route路由到被跳转页面123456789.state(&apos;home.my_product.edit&apos;,&amp;#123;            url:&apos;/edit/:product_id&apos;,            views:&amp;#123;                &apos;main@home&apos;:&amp;#123;                    templat">
+<meta property="og:type" content="article">
+<meta property="og:title" content="angularjs">
+<meta property="og:url" content="https://wdchang.github.io/2016/05/25/angularjs/index.html">
 <meta property="og:site_name" content="Welcome to W.chang blog">
-<meta property="og:description">
+<meta property="og:description" content="基于ui-router的页面跳转传参ui-route路由到被跳转页面123456789.state(&apos;home.my_product.edit&apos;,&amp;#123;            url:&apos;/edit/:product_id&apos;,            views:&amp;#123;                &apos;main@home&apos;:&amp;#123;                    templat">
+<meta property="og:updated_time" content="2016-05-25T10:22:43.848Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Welcome to W.chang blog">
-<meta name="twitter:description">
+<meta name="twitter:title" content="angularjs">
+<meta name="twitter:description" content="基于ui-router的页面跳转传参ui-route路由到被跳转页面123456789.state(&apos;home.my_product.edit&apos;,&amp;#123;            url:&apos;/edit/:product_id&apos;,            views:&amp;#123;                &apos;main@home&apos;:&amp;#123;                    templat">
   
     <link rel="alternate" href="/atom.xml" title="Welcome to W.chang blog" type="application/atom+xml">
   
@@ -62,9 +63,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-angularjs" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-angularjs" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/05/25/angularjs/" class="article-date">
   <time datetime="2016-05-25T10:20:48.000Z" itemprop="datePublished">2016-05-25</time>
@@ -77,8 +76,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/25/angularjs/">angularjs</a>
+    <h1 class="article-title" itemprop="name">
+      angularjs
     </h1>
   
 
@@ -106,117 +105,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/25/git/" class="article-date">
-  <time datetime="2016-05-25T10:05:51.000Z" itemprop="datePublished">2016-05-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/25/git/">git</a>
-    </h1>
+    <a href="/2016/05/25/git/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">git</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="git-常用操作"><a href="#git-常用操作" class="headerlink" title="git 常用操作"></a>git 常用操作</h3><ul>
-<li>github拉取指定分支: git fetch origin dev:dev</li>
-<li>git pull 等同于 git fetch 紧接着一个 git merge</li>
-<li>查看分支合并 git log —oneline —graph</li>
-</ul>
-<h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><ul>
-<li>git push origin —delete dev（分支名，比如dev)</li>
-<li>git push origin :dev</li>
-</ul>
-<h3 id="本地仓库与远程仓库关联"><a href="#本地仓库与远程仓库关联" class="headerlink" title="本地仓库与远程仓库关联"></a>本地仓库与远程仓库关联</h3><ul>
-<li>在本地新建的库中git init</li>
-<li>git remote add origin git@github.com:wdchang/此处为远程仓库的名字.git</li>
-<li>git push -u origin master</li>
-<li>若直接push 不行，就git branch –set-upstream-to=origin/master master</li>
-<li>git pull</li>
-<li>git push</li>
-</ul>
-<h3 id="commit写错了修改"><a href="#commit写错了修改" class="headerlink" title="commit写错了修改"></a>commit写错了修改</h3><ul>
-<li>git commit –amend 可以对上一次的提交做修改</li>
-<li>git push -f 提交 对于已经push</li>
-</ul>
-<h3 id="commit-warn：LF-will-be-replaced-by-CRLF"><a href="#commit-warn：LF-will-be-replaced-by-CRLF" class="headerlink" title="commit warn：LF will be replaced by CRLF"></a>commit warn：LF will be replaced by CRLF</h3><ul>
-<li>git config core.autocrlf=false to system-wide gitconfig</li>
-<li>git config –global core.autocrlf false per user solution</li>
-<li>git config –local core.autocrlf false per project solution</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://wdchang.github.io/2016/05/25/git/" data-id="ciomq2q9c00013w9xljh3nwlb" class="article-share-link">Delen</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/05/25/hello-world/" class="article-date">
-  <time datetime="2016-05-25T09:52:52.615Z" itemprop="datePublished">2016-05-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/25/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://wdchang.github.io/2016/05/25/hello-world/" data-id="ciomq2q9g00023w9xnt00lw8x" class="article-share-link">Delen</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 </section>
         
