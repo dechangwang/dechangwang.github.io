@@ -3,48 +3,39 @@
 <head>
   <meta charset="utf-8">
   
-  <title>git | W.chang&#39;s blog</title>
+  <title>maven | W.chang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="git 常用操作
-github拉取指定分支: git fetch origin dev:dev
-git pull 等同于 git fetch 紧接着一个 git merge
-查看分支合并 git log —oneline —graph
-
-删除远程分支
-git push origin —delete dev（分支名，比如dev)
-git push origin :dev
-
-本地仓库与远程仓库关联
-在">
+  <meta name="description" content="mvn -vcompile 编译
+test 测试
+package 打包
+clean 删除target
+install 安装jar包到本地仓库
+setting文件&amp;lt;id&amp;gt;maven.net.cn&amp;lt;/id&amp;gt;
+&amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt;
+&amp;lt;name&amp;gt;central mirror in china&amp;lt;/name&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git">
-<meta property="og:url" content="https://wdchang.github.io/2016/05/25/git/index.html">
+<meta property="og:title" content="maven">
+<meta property="og:url" content="https://wdchang.github.io/2016/05/26/maven/index.html">
 <meta property="og:site_name" content="W.chang's blog">
-<meta property="og:description" content="git 常用操作
-github拉取指定分支: git fetch origin dev:dev
-git pull 等同于 git fetch 紧接着一个 git merge
-查看分支合并 git log —oneline —graph
-
-删除远程分支
-git push origin —delete dev（分支名，比如dev)
-git push origin :dev
-
-本地仓库与远程仓库关联
-在">
-<meta property="og:updated_time" content="2016-05-25T10:17:38.291Z">
+<meta property="og:description" content="mvn -vcompile 编译
+test 测试
+package 打包
+clean 删除target
+install 安装jar包到本地仓库
+setting文件&amp;lt;id&amp;gt;maven.net.cn&amp;lt;/id&amp;gt;
+&amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt;
+&amp;lt;name&amp;gt;central mirror in china&amp;lt;/name&amp;">
+<meta property="og:updated_time" content="2016-05-26T09:35:09.971Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="git">
-<meta name="twitter:description" content="git 常用操作
-github拉取指定分支: git fetch origin dev:dev
-git pull 等同于 git fetch 紧接着一个 git merge
-查看分支合并 git log —oneline —graph
-
-删除远程分支
-git push origin —delete dev（分支名，比如dev)
-git push origin :dev
-
-本地仓库与远程仓库关联
-在">
+<meta name="twitter:title" content="maven">
+<meta name="twitter:description" content="mvn -vcompile 编译
+test 测试
+package 打包
+clean 删除target
+install 安装jar包到本地仓库
+setting文件&amp;lt;id&amp;gt;maven.net.cn&amp;lt;/id&amp;gt;
+&amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt;
+&amp;lt;name&amp;gt;central mirror in china&amp;lt;/name&amp;">
   
     <link rel="alternate" href="/atom.xml" title="W.chang&#39;s blog" type="application/atom+xml">
   
@@ -93,10 +84,10 @@ git push origin :dev
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-git" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-maven" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/05/25/git/" class="article-date">
-  <time datetime="2016-05-25T10:05:51.000Z" itemprop="datePublished">2016-05-25</time>
+    <a href="/2016/05/26/maven/" class="article-date">
+  <time datetime="2016-05-26T09:32:32.000Z" itemprop="datePublished">2016-05-26</time>
 </a>
     
   </div>
@@ -107,7 +98,7 @@ git push origin :dev
         
   
     <h1 class="article-title" itemprop="name">
-      git
+      maven
     </h1>
   
 
@@ -115,37 +106,21 @@ git push origin :dev
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="git-常用操作"><a href="#git-常用操作" class="headerlink" title="git 常用操作"></a>git 常用操作</h3><ul>
-<li>github拉取指定分支: git fetch origin dev:dev</li>
-<li>git pull 等同于 git fetch 紧接着一个 git merge</li>
-<li>查看分支合并 git log —oneline —graph</li>
-</ul>
-<h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><ul>
-<li>git push origin —delete dev（分支名，比如dev)</li>
-<li>git push origin :dev</li>
-</ul>
-<h3 id="本地仓库与远程仓库关联"><a href="#本地仓库与远程仓库关联" class="headerlink" title="本地仓库与远程仓库关联"></a>本地仓库与远程仓库关联</h3><ul>
-<li>在本地新建的库中git init</li>
-<li>git remote add origin git@github.com:wdchang/此处为远程仓库的名字.git</li>
-<li>git push -u origin master</li>
-<li>若直接push 不行，就git branch –set-upstream-to=origin/master master</li>
-<li>git pull</li>
-<li>git push</li>
-</ul>
-<h3 id="commit写错了修改"><a href="#commit写错了修改" class="headerlink" title="commit写错了修改"></a>commit写错了修改</h3><ul>
-<li>git commit –amend 可以对上一次的提交做修改</li>
-<li>git push -f 提交 对于已经push</li>
-</ul>
-<h3 id="commit-warn：LF-will-be-replaced-by-CRLF"><a href="#commit-warn：LF-will-be-replaced-by-CRLF" class="headerlink" title="commit warn：LF will be replaced by CRLF"></a>commit warn：LF will be replaced by CRLF</h3><ul>
-<li>git config core.autocrlf=false to system-wide gitconfig</li>
-<li>git config –global core.autocrlf false per user solution</li>
-<li>git config –local core.autocrlf false per project solution</li>
-</ul>
+        <h4 id="mvn-v"><a href="#mvn-v" class="headerlink" title="mvn -v"></a>mvn -v</h4><pre><code>compile 编译
+test 测试
+package 打包
+clean 删除target
+install 安装jar包到本地仓库
+</code></pre><h3 id="setting文件"><a href="#setting文件" class="headerlink" title="setting文件"></a>setting文件</h3><pre><code>&lt;id&gt;maven.net.cn&lt;/id&gt;
+&lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+&lt;name&gt;central mirror in china&lt;/name&gt;
+&lt;url&gt;http://maven.net.cn/content/groups/public&lt;/url&gt;
+</code></pre><p><em>更改仓库目录</em><br>    settting文件中的 55行修改目录 可以将该文件copy到repo目录中可以避免每次更新修改目录</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wdchang.github.io/2016/05/25/git/" data-id="cioo3trft0002x09xr237nmy9" class="article-share-link">Share</a>
+      <a data-url="https://wdchang.github.io/2016/05/26/maven/" data-id="cioo3trfp0001x09xazmxz965" class="article-share-link">Share</a>
       
       
     </footer>
@@ -154,19 +129,10 @@ git push origin :dev
     
 <nav id="article-nav">
   
-    <a href="/2016/05/25/angularjs/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          angularjs
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/05/25/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/05/25/angularjs/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">angularjs</div>
     </a>
   
 </nav>
