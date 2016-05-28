@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>regular-expression | W.chang&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="贪婪型
+勉强型
+占有型
+如何匹配
+
+
+
+
+X?
+X??
+X?+
+一个或0个X
+
+
+X*
+X*?
+X*+
+0个或多个X
+
+
+X+
+X+?
+X++
+一个或多个X
+
+
+X{n}
+X{n}?
+X{n}+
+恰好n次X
+
+
+X{n,}
+X{n,}?
+X{n,}+
+至少n次X
+
+
+X{n,m}
+X{n,m}?
+X{n,m}+
+至少n次X,且不超过m次
+
+
+
+边界匹配符
+
+
+
+
+
+
+
+
+^
+一行的开始">
+<meta property="og:type" content="article">
+<meta property="og:title" content="regular-expression">
+<meta property="og:url" content="https://wdchang.github.io/2016/05/28/regular-expression/index.html">
+<meta property="og:site_name" content="W.chang's blog">
+<meta property="og:description" content="贪婪型
+勉强型
+占有型
+如何匹配
+
+
+
+
+X?
+X??
+X?+
+一个或0个X
+
+
+X*
+X*?
+X*+
+0个或多个X
+
+
+X+
+X+?
+X++
+一个或多个X
+
+
+X{n}
+X{n}?
+X{n}+
+恰好n次X
+
+
+X{n,}
+X{n,}?
+X{n,}+
+至少n次X
+
+
+X{n,m}
+X{n,m}?
+X{n,m}+
+至少n次X,且不超过m次
+
+
+
+边界匹配符
+
+
+
+
+
+
+
+
+^
+一行的开始">
+<meta property="og:updated_time" content="2016-05-28T07:40:29.952Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="regular-expression">
+<meta name="twitter:description" content="贪婪型
+勉强型
+占有型
+如何匹配
+
+
+
+
+X?
+X??
+X?+
+一个或0个X
+
+
+X*
+X*?
+X*+
+0个或多个X
+
+
+X+
+X+?
+X++
+一个或多个X
+
+
+X{n}
+X{n}?
+X{n}+
+恰好n次X
+
+
+X{n,}
+X{n,}?
+X{n,}+
+至少n次X
+
+
+X{n,m}
+X{n,m}?
+X{n,m}+
+至少n次X,且不超过m次
+
+
+
+边界匹配符
+
+
+
+
+
+
+
+
+^
+一行的开始">
+  
+    <link rel="alternate" href="/atom.xml" title="W.chang&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">W.chang&#39;s blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wdchang.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-regular-expression" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/05/28/regular-expression/" class="article-date">
+  <time datetime="2016-05-28T07:39:45.000Z" itemprop="datePublished">2016-05-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      regular-expression
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th style="text-align:center">贪婪型</th>
+<th style="text-align:right">勉强型</th>
+<th style="text-align:right">占有型</th>
+<th style="text-align:right">如何匹配</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">X?</td>
+<td style="text-align:right">X??</td>
+<td style="text-align:right">X?+</td>
+<td style="text-align:right">一个或0个X</td>
+</tr>
+<tr>
+<td style="text-align:center">X*</td>
+<td style="text-align:right">X*?</td>
+<td style="text-align:right">X*+</td>
+<td style="text-align:right">0个或多个X</td>
+</tr>
+<tr>
+<td style="text-align:center">X+</td>
+<td style="text-align:right">X+?</td>
+<td style="text-align:right">X++</td>
+<td style="text-align:right">一个或多个X</td>
+</tr>
+<tr>
+<td style="text-align:center">X{n}</td>
+<td style="text-align:right">X{n}?</td>
+<td style="text-align:right">X{n}+</td>
+<td style="text-align:right">恰好n次X</td>
+</tr>
+<tr>
+<td style="text-align:center">X{n,}</td>
+<td style="text-align:right">X{n,}?</td>
+<td style="text-align:right">X{n,}+</td>
+<td style="text-align:right">至少n次X</td>
+</tr>
+<tr>
+<td style="text-align:center">X{n,m}</td>
+<td style="text-align:right">X{n,m}?</td>
+<td style="text-align:right">X{n,m}+</td>
+<td style="text-align:right">至少n次X,且不超过m次</td>
+</tr>
+</tbody>
+</table>
+<h4 id="边界匹配符"><a href="#边界匹配符" class="headerlink" title="边界匹配符"></a>边界匹配符</h4><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:right"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">^</td>
+<td style="text-align:right">一行的开始</td>
+</tr>
+<tr>
+<td style="text-align:center">$</td>
+<td style="text-align:right">一行的结束</td>
+</tr>
+<tr>
+<td style="text-align:center">\b</td>
+<td style="text-align:right">词的边界</td>
+</tr>
+<tr>
+<td style="text-align:center">\B</td>
+<td style="text-align:right">非词的边界</td>
+</tr>
+<tr>
+<td style="text-align:center">\G</td>
+<td style="text-align:right">前一个匹配的结束</td>
+</tr>
+<tr>
+<td style="text-align:center">?</td>
+<td style="text-align:right">匹配先前的元素0or1次.</td>
+</tr>
+<tr>
+<td style="text-align:center">\w</td>
+<td style="text-align:right">匹配任何字符</td>
+</tr>
+</tbody>
+</table>
+<h4 id="字符类"><a href="#字符类" class="headerlink" title="字符类"></a>字符类</h4><table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:right"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">[abc]</td>
+<td style="text-align:right">a, b, or c</td>
+</tr>
+<tr>
+<td style="text-align:center">[^abc]</td>
+<td style="text-align:right">Any character except a, b, or c (negation)</td>
+</tr>
+<tr>
+<td style="text-align:center">[a-zA-Z]</td>
+<td style="text-align:right">a through z or A through Z, inclusive (range)</td>
+</tr>
+<tr>
+<td style="text-align:center">[a-d[m-p]]</td>
+<td style="text-align:right">a through d, or m through p: [a-dm-p] (union)</td>
+</tr>
+<tr>
+<td style="text-align:center">\d</td>
+<td style="text-align:right">A digit: [0-9]</td>
+</tr>
+<tr>
+<td style="text-align:center">\D</td>
+<td style="text-align:right">A non-digit: [^0-9]</td>
+</tr>
+<tr>
+<td style="text-align:center">*?</td>
+<td style="text-align:right">Matches the previous element zero or more times, but as few times as possible.</td>
+</tr>
+<tr>
+<td style="text-align:center">+?</td>
+<td style="text-align:right">Matches the previous element one or more times, but as few times as possible.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="一些例子"><a href="#一些例子" class="headerlink" title="一些例子"></a>一些例子</h4><table>
+<thead>
+<tr>
+<th style="text-align:center">Pattern</th>
+<th style="text-align:right">matches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\d*.\d</td>
+<td style="text-align:right">“.0”, “19.9”, “219.9”</td>
+</tr>
+<tr>
+<td style="text-align:center">“rai?n”</td>
+<td style="text-align:right">“ran”, “rain”</td>
+</tr>
+<tr>
+<td style="text-align:center">“\d{3,5}”</td>
+<td style="text-align:right">“166”, “17668” “19302” in “193024”</td>
+</tr>
+<tr>
+<td style="text-align:center">(?<double>\w)\k<double></double></double></td>
+<td style="text-align:right">“ee” in “deep”</td>
+</tr>
+<tr>
+<td style="text-align:center">\w+(?=.)</td>
+<td style="text-align:right">“is”, “ran”, and “out” in “He is. The dog ran. The sun is out.”</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>检验密码强度<ul>
+<li>包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间。</li>
+<li>^(?=.<em>\d)(?=.</em>[a-z])(?=.*[A-Z]).{8,10}$</li>
+</ul>
+</li>
+<li>检验中文<ul>
+<li>^[\u4e00-\u9fa5]{0,}$</li>
+</ul>
+</li>
+</ul>
+<p><em>例子来源于</em><a href="https://msdn.microsoft.com/en-us/library/az24scfc(v=vs.110" target="_blank" rel="external">这里</a>.aspx)<br><a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html" target="_blank" rel="external">更多用法</a></p>
+<h4 id="java中正则匹配的使用"><a href="#java中正则匹配的使用" class="headerlink" title="java中正则匹配的使用"></a>java中正则匹配的使用</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Pattern p = Pattern.compile(<span class="string">"a*b"</span>);</span><br><span class="line">Matcher m = p.matcher(<span class="string">"aaaaab"</span>);</span><br><span class="line"><span class="keyword">boolean</span> b = m.matches();</span><br></pre></td></tr></table></figure>
+<p><a href="https://regex101.com/#javascript" target="_blank" rel="external">在线练习正则表达式</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wdchang.github.io/2016/05/28/regular-expression/" data-id="cioqulloa0001189xpk7r89sj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/26/maven/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">maven</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/05/28/regular-expression/">regular-expression</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/26/maven/">maven</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/25/angularjs/">angularjs</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/25/git/">git</a>
+          </li>
+        
+          <li>
+            <a href="/2016/05/25/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 w.chang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
