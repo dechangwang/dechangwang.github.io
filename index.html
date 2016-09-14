@@ -51,9 +51,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wdchang.github.io"></form>
@@ -63,6 +63,95 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-OkHttp-VS-HttpURLConnection" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/14/OkHttp-VS-HttpURLConnection/" class="article-date">
+  <time datetime="2016-09-14T15:45:35.000Z" itemprop="datePublished">2016-09-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/09/14/OkHttp-VS-HttpURLConnection/">OkHttp VS HttpURLConnection</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="HttpURLConnection与OkHttp"><a href="#HttpURLConnection与OkHttp" class="headerlink" title="HttpURLConnection与OkHttp"></a>HttpURLConnection与OkHttp</h5><ul>
+<li>HttpURLConnection和OkHttp底层都是通过封装Socket来实现网络连接，但是Okhttp相较于HttpURLConnection封装的比较彻底(这也就是为何会有Volley的原因吧)。<ul>
+<li><font face="黑体" color="#0099ff"><em>对于一个简单的网络请求，如果使用Okhttp，只需要以下的几条语句就可以获得Response</em></font><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">OkHttpClient client = <span class="keyword">new</span> OkHttpClient();</span><br><span class="line">Request request = <span class="keyword">new</span> Request.Builder().url(url).build();</span><br><span class="line">Response response = client.newCall(request).execute();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>但是如果采用HttpURLConncetion，返回的是一个InputStream，再通过读取字符串流得到我们需要的Response，这时的代码如下所示：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">URL url = <span class="keyword">new</span> URL(<span class="string">"http://www.android.com/"</span>);</span><br><span class="line">HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();</span><br><span class="line">InputStream in = <span class="keyword">new</span> BufferedInputStream(urlConnection.getInputStream());</span><br><span class="line">readStream(in);<span class="comment">//读取管道流中的内容</span></span><br><span class="line">in.close();<span class="comment">//省略异常处理</span></span><br></pre></td></tr></table></figure></p>
+<p>从该方面可以看出使用OkHttp确实要比使用HttpURLConnection方便</p>
+<ul>
+<li>获取实例<ul>
+<li><font face="黑体" color="#0099ff"><em>OkHttp在获取连接客户端时通过OKHttpClient的内部类Builder来实现初始化，即使直接new OkHttpClient(),也是在构造函数中调用了this(new Builder())，然后利用Builder中的默认参数初始化OkHttpClient。在使用OkHttp时，推荐使用单例模式，这是因为每一个OkHttpClient实例都会自己维护一个连接池、线程池，如果对于每一个请求创建一个实例则会大大浪费资源。但是使用单例又会有一个问题，如果对于某次请求想重新设置连接超时时间，直接修改单例对象显然不合理，重新new一个代价太大，合理的方法是clone一个实例用来单独自定义（浅拷贝得到的实例中对于引用的对象仍然共享，即连接池仍然共享）。</em></font></li>
+<li>HttpURLConnection是URLConnection的子类，通过URL获得连接然后调用openConnection获取实例，其实也可以说HttpURLConnection是封装JDK包中的网络请求来完成自己的请求的。但是在使用HttpURLConnection时，必须首先使用new URl(String url),然后才能获取实例。</li>
+</ul>
+</li>
+<li>建立网络连接<ul>
+<li>这一点上2者有相似之处，对于HttpURLConnection当调用getInputStream()时才进行Socket连接，<font face="黑体" color="#0099ff"><em>对于OkHttp，当调用execute()|enqueue()时，才进行socket连接</em>，</font>但是HttpURLConnection不同的一点时，也可以直接通过调用connect()建立tcp连接，然后在读取数据时发送http请求。</li>
+</ul>
+</li>
+<li>请求方式<ul>
+<li><font face="黑体" color="#0099ff"><em>对于Okhttp，对外提供了异步请求(enqueue(callBack))和同步请求接口(execute())。</em><ul>
+<li><strong>execute()方法：</strong>调用流程 <strong>RealCall.execute()–&gt; dispatcher.executed(realcall) –&gt; runningSyncCalls.add(realCall) </strong><br>dispatcher.executed()方法并没有执行realCall，只是将realCall添加到名为runningSyncCalls的Deque中保存，真正执行Call是在realCall.executed方法中调用的getResponseWithInterceptorChain(),该方法是执行拦截器链的入口。</li>
+<li><strong>enqueue(callBack)方法：</strong>调用流程 <strong>realCall.enqueue(callBack) –&gt; dispatcher(AsyncCall(callBack))–&gt; executorService().execute(asyncCall)</strong><br>（这里的Call其实就是一个Runnable，在其run方法中调用了AsyncCall.execute() , 此处的execute()除了进入拦截器链外，还根据response的状态回调），在dispatcher.enqueue()方法中，首先判断是否已到达最大请求数，若没有则将该call添加到正在执行的deque中同时在线程池执行，否则将call缓存到准备执行的deque中。既然会将call缓存到deque中，那么何时执行这些缓存的call呢？其实在每次完成一次请求后，都会调用premoteCalls()，该方法的主要功能就是监测runningDeque是否空闲以及是否有待执行的请求。</li>
+</ul>
+</font></li>
+<li>但是对于HttpURLConnection，如果想使用异步调用，则需要自己管理线程，在非UI线程中请求数据(虽然耗时的网络请求一般不会放在主线程中，但是让自己写异步请求总归没有直接调用来的方便)</li>
+</ul>
+</li>
+<li>失败重试<ul>
+<li><font face="黑体" color="#0099ff"><em>okhttp在发送网络请求时，采用了拦截器Chain来层层向下传递请求，当其中有一层可以获取Response时就返回。拦截器链中首先调用RetryAndFollowUpInterceptor，处理失败重试（最大重试次数=20）</em></font>但是在HttpURLConnection中并没有看到相关处理失败重试的相关逻辑，这样一旦失败就失败了并不会自动进行失败重试，要想实现失败重试，只能是自己判断ResponseCode写重试逻辑。</li>
+</ul>
+</li>
+<li>网络请求缓存<ul>
+<li>HttpUrlConnection直接在系统层面做了缓存策略处理，<font face="黑体" color="#0099ff"><em>而OkHttp的网络请求缓存是在拦截器Chain中处理的，对应的类是CacheInterceptor，该类监测缓存是否可用、读取缓存、以及更新缓存。</em></font></li>
+</ul>
+</li>
+<li>连接池<ul>
+<li>HttpURLConnection每次在获得连接时，是通过调用getNewHttpClient获得一个HttpClient实例(HttpClient发送http请求)，在HttpClient的构造函数中会调用openServer()方法，然后通过调用doConnect建立socket连接，这样似乎在每次连接时都是新建socket。但其实每次在获取HttpClient时并没有直接new，而是调用了httpClient.New()方法获取实例，在该方法中首先调用KeepAliveCache.get()获取一个HttpClient(也就是系统在维护的连接池)，如果得到的HttpClient！=null 且method！=“POST”时，使用已有的连接，否则新建socket连接。</li>
+<li><font face="黑体" color="#0099ff"><em>OkHttp在每次生成新的连接时（即RealConnection，Connection封装了Socket），调用ConnectionPool中的put方法，将其连接保存到Deque中。当每次需要建立连接时首先判断connectionPool已有连接的address是否与将要建立连接的Address相等，若相等则直接返回Connection否则new RealConnection()</em></font>
+
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><ul>
+<li>OkHttp与HttpURLConnection相比，优势主要体现在：<ul>
+<li>对socket封装的更完善，网络请求直接返回Response，而HttpURLConnection返回Stream流，还需再次读取流中的字符。</li>
+<li>对外接口丰富，OkHttp提供了同步、异步请求接口。</li>
+<li>网络请求中处理了连接失败时自动重试的逻辑</li>
+</ul>
+</li>
+<li>虽然OkHttp有许多优点，但是个人认为它在处理异步请求这里可能会出现问题，极端情形就是当前已达到最大请求数时，readyAsyncCalls中的Call可能一直得不到执行。假如在一次异步请求完成时，恰好有一个新的call要执行，但是finished方法中刚执行结束remove，此时runningSyncCalls.size() == maxRequests - 1,那么新的call会立即执行同时被添加到runningSyncCalls中，此时当线程到premoteCalls时，由于已达到最大请求数而不会执行readyAsyncCalls中的Call。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wdchang.github.io/2016/09/14/OkHttp-VS-HttpURLConnection/" data-id="cit32ymy20000ao9xjbx8qjsc" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-regular-expression" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -262,7 +351,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wdchang.github.io/2016/05/28/regular-expression/" data-id="cioqulloa0001189xpk7r89sj" class="article-share-link">Share</a>
+      <a data-url="https://wdchang.github.io/2016/05/28/regular-expression/" data-id="cit32yn4e0005ao9x7dgh3jae" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -308,7 +397,7 @@ install 安装jar包到本地仓库
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wdchang.github.io/2016/05/26/maven/" data-id="cioqulloa0002189xw3h937jg" class="article-share-link">Share</a>
+      <a data-url="https://wdchang.github.io/2016/05/26/maven/" data-id="cit32yn3j0003ao9xkn5w12hg" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -354,7 +443,7 @@ install 安装jar包到本地仓库
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wdchang.github.io/2016/05/25/angularjs/" data-id="cioqullm30000189xm5fvxtoz" class="article-share-link">Share</a>
+      <a data-url="https://wdchang.github.io/2016/05/25/angularjs/" data-id="cit32yn350001ao9x1w7h2sx1" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -416,7 +505,7 @@ install 安装jar包到本地仓库
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wdchang.github.io/2016/05/25/git/" data-id="cioqulloa0003189xh0paxxil" class="article-share-link">Share</a>
+      <a data-url="https://wdchang.github.io/2016/05/25/git/" data-id="cit32yn3g0002ao9xxix3mgob" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -461,7 +550,7 @@ install 安装jar包到本地仓库
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wdchang.github.io/2016/05/25/hello-world/" data-id="cioqulloa0004189xrnlpz0k1" class="article-share-link">Share</a>
+      <a data-url="https://wdchang.github.io/2016/05/25/hello-world/" data-id="cit32yn400004ao9xj7cgscad" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -488,7 +577,7 @@ install 安装jar包到本地仓库
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
     </div>
   </div>
 
@@ -496,9 +585,13 @@ install 安装jar包到本地仓库
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/09/14/OkHttp-VS-HttpURLConnection/">OkHttp VS HttpURLConnection</a>
+          </li>
         
           <li>
             <a href="/2016/05/28/regular-expression/">regular-expression</a>
@@ -516,10 +609,6 @@ install 安装jar包到本地仓库
             <a href="/2016/05/25/git/">git</a>
           </li>
         
-          <li>
-            <a href="/2016/05/25/hello-world/">Hello World</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -533,7 +622,7 @@ install 安装jar包到本地仓库
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 w.chang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
