@@ -3,39 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>maven | W.chang&#39;s blog</title>
+  <title>angularjs_Servlet | W.chang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mvn -vcompile 编译
-test 测试
-package 打包
-clean 删除target
-install 安装jar包到本地仓库
-setting文件&amp;lt;id&amp;gt;maven.net.cn&amp;lt;/id&amp;gt;
-&amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt;
-&amp;lt;name&amp;gt;central mirror in china&amp;lt;/name&amp;">
+  <meta name="description" content="使用angularjs向后台Servlet发送请求
+js发送请求的方式为：
+1234567891011121314$http(&amp;#123;           url: &apos;ActivityServlet&apos;,//后台Servlet           method: &quot;POST&quot;,           params : &amp;#123;               id_number : $scope.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="maven">
-<meta property="og:url" content="https://wdchang.github.io/2016/05/26/maven/index.html">
+<meta property="og:title" content="angularjs_Servlet">
+<meta property="og:url" content="https://wdchang.github.io/2017/03/09/angularjs-Servlet/index.html">
 <meta property="og:site_name" content="W.chang's blog">
-<meta property="og:description" content="mvn -vcompile 编译
-test 测试
-package 打包
-clean 删除target
-install 安装jar包到本地仓库
-setting文件&amp;lt;id&amp;gt;maven.net.cn&amp;lt;/id&amp;gt;
-&amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt;
-&amp;lt;name&amp;gt;central mirror in china&amp;lt;/name&amp;">
-<meta property="og:updated_time" content="2016-05-26T09:35:09.971Z">
+<meta property="og:description" content="使用angularjs向后台Servlet发送请求
+js发送请求的方式为：
+1234567891011121314$http(&amp;#123;           url: &apos;ActivityServlet&apos;,//后台Servlet           method: &quot;POST&quot;,           params : &amp;#123;               id_number : $scope.">
+<meta property="og:updated_time" content="2017-03-09T15:03:10.721Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="maven">
-<meta name="twitter:description" content="mvn -vcompile 编译
-test 测试
-package 打包
-clean 删除target
-install 安装jar包到本地仓库
-setting文件&amp;lt;id&amp;gt;maven.net.cn&amp;lt;/id&amp;gt;
-&amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt;
-&amp;lt;name&amp;gt;central mirror in china&amp;lt;/name&amp;">
+<meta name="twitter:title" content="angularjs_Servlet">
+<meta name="twitter:description" content="使用angularjs向后台Servlet发送请求
+js发送请求的方式为：
+1234567891011121314$http(&amp;#123;           url: &apos;ActivityServlet&apos;,//后台Servlet           method: &quot;POST&quot;,           params : &amp;#123;               id_number : $scope.">
   
     <link rel="alternate" href="/atom.xml" title="W.chang&#39;s blog" type="application/atom+xml">
   
@@ -84,10 +69,10 @@ setting文件&amp;lt;id&amp;gt;maven.net.cn&amp;lt;/id&amp;gt;
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-maven" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-angularjs-Servlet" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/05/26/maven/" class="article-date">
-  <time datetime="2016-05-26T09:32:32.000Z" itemprop="datePublished">2016-05-26</time>
+    <a href="/2017/03/09/angularjs-Servlet/" class="article-date">
+  <time datetime="2017-03-09T14:51:39.000Z" itemprop="datePublished">2017-03-09</time>
 </a>
     
   </div>
@@ -98,7 +83,7 @@ setting文件&amp;lt;id&amp;gt;maven.net.cn&amp;lt;/id&amp;gt;
         
   
     <h1 class="article-title" itemprop="name">
-      maven
+      angularjs_Servlet
     </h1>
   
 
@@ -106,21 +91,21 @@ setting文件&amp;lt;id&amp;gt;maven.net.cn&amp;lt;/id&amp;gt;
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="mvn-v"><a href="#mvn-v" class="headerlink" title="mvn -v"></a>mvn -v</h4><pre><code>compile 编译
-test 测试
-package 打包
-clean 删除target
-install 安装jar包到本地仓库
-</code></pre><h3 id="setting文件"><a href="#setting文件" class="headerlink" title="setting文件"></a>setting文件</h3><pre><code>&lt;id&gt;maven.net.cn&lt;/id&gt;
-&lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
-&lt;name&gt;central mirror in china&lt;/name&gt;
-&lt;url&gt;http://maven.net.cn/content/groups/public&lt;/url&gt;
-</code></pre><p><em>更改仓库目录</em><br>    settting文件中的 55行修改目录 可以将该文件copy到repo目录中可以避免每次更新修改目录</p>
+        <h5 id="使用angularjs向后台Servlet发送请求"><a href="#使用angularjs向后台Servlet发送请求" class="headerlink" title="使用angularjs向后台Servlet发送请求"></a>使用angularjs向后台Servlet发送请求</h5><ul>
+<li><p>js发送请求的方式为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$http(&#123;</span><br><span class="line">           url: <span class="string">'ActivityServlet'</span>,<span class="comment">//后台Servlet</span></span><br><span class="line">           method: <span class="string">"POST"</span>,</span><br><span class="line">           params : &#123;</span><br><span class="line">               id_number : $scope.id_number,</span><br><span class="line">               email : <span class="string">"123123@3321.com"</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">"hahahah"</span>);</span><br><span class="line">           <span class="built_in">console</span>.log(response.data);</span><br><span class="line">       &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">response</span>) </span>&#123;</span><br><span class="line">           <span class="built_in">console</span>.log(<span class="string">"error"</span>);</span><br><span class="line">           <span class="built_in">console</span>.log(response);</span><br><span class="line">       &#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>后台Servlet的doPost方法中获取参数的方式：<br>String email = request.getParameter(“email”);<br>如果是自动生成的doPost方法，会调用super.doPost(request,response), 在此次使用doPost方法时，由于没有删掉<em>super.doPost()</em>这一语句，导致参数可以传到后台，但是前端一直报405method not allowed错误，通过不调用父方法而解决 </p>
+</li>
+</ul>
+<h5 id="idea-如何将已有项目使用maven管理"><a href="#idea-如何将已有项目使用maven管理" class="headerlink" title="idea 如何将已有项目使用maven管理"></a>idea 如何将已有项目使用maven管理</h5><ul>
+<li>右键module name 选择add framework support 然后选择maven即可生成默认的pom.xml文件</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wdchang.github.io/2016/05/26/maven/" data-id="cj02iwlhl0006009xmddhdn6g" class="article-share-link">Share</a>
+      <a data-url="https://wdchang.github.io/2017/03/09/angularjs-Servlet/" data-id="cj02iwlg80000009x0m0lch1m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -129,19 +114,10 @@ install 安装jar包到本地仓库
     
 <nav id="article-nav">
   
-    <a href="/2016/05/28/regular-expression/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          regular-expression
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/05/25/angularjs/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/12/28/design-pattern/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">angularjs</div>
+      <div class="article-nav-title">design_pattern</div>
     </a>
   
 </nav>
