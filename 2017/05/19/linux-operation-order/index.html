@@ -3,21 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | W.chang&#39;s blog</title>
+  <title>linux operation order | W.chang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="提交包到spark上运行
+
+./bin/spark-submit –conf spark.neo4j.bolt.password=wang –conf spark.neo4j.bolt.url=bolt://192.168.171.128:7687 –master spark://192.168.171.128:7077 –class cn.edu.wang.neo4j.Main /home/a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://wdchang.github.io/2016/05/25/hello-world/index.html">
+<meta property="og:title" content="linux operation order">
+<meta property="og:url" content="https://wdchang.github.io/2017/05/19/linux-operation-order/index.html">
 <meta property="og:site_name" content="W.chang's blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-05-25T09:52:52.615Z">
+<meta property="og:description" content="提交包到spark上运行
+
+./bin/spark-submit –conf spark.neo4j.bolt.password=wang –conf spark.neo4j.bolt.url=bolt://192.168.171.128:7687 –master spark://192.168.171.128:7077 –class cn.edu.wang.neo4j.Main /home/a">
+<meta property="og:updated_time" content="2017-05-19T02:47:29.760Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="linux operation order">
+<meta name="twitter:description" content="提交包到spark上运行
+
+./bin/spark-submit –conf spark.neo4j.bolt.password=wang –conf spark.neo4j.bolt.url=bolt://192.168.171.128:7687 –master spark://192.168.171.128:7077 –class cn.edu.wang.neo4j.Main /home/a">
   
     <link rel="alternate" href="/atom.xml" title="W.chang&#39;s blog" type="application/atom+xml">
   
@@ -66,10 +69,10 @@ Quick">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-linux-operation-order" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/05/25/hello-world/" class="article-date">
-  <time datetime="2016-05-25T09:52:52.615Z" itemprop="datePublished">2016-05-25</time>
+    <a href="/2017/05/19/linux-operation-order/" class="article-date">
+  <time datetime="2017-05-19T02:42:38.000Z" itemprop="datePublished">2017-05-19</time>
 </a>
     
   </div>
@@ -80,7 +83,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      linux operation order
     </h1>
   
 
@@ -88,20 +91,38 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <ul>
+<li><p>提交包到spark上运行</p>
+<ul>
+<li>./bin/spark-submit –conf spark.neo4j.bolt.password=wang –conf spark.neo4j.bolt.url=bolt://192.168.171.128:7687 –master spark://192.168.171.128:7077 –class cn.edu.wang.neo4j.Main /home/andy/Neo4jSpark.jar</li>
+</ul>
+</li>
+<li><p>hadoop查看文件<br>./bin/hadoop fs -ls input/<br>./bin/hadoop fs -ls /</p>
+</li>
+<li><p>从服务器下载整个目录</p>
+<pre><code>scp -r username@servername:remote_dir/ /tmp/local_dir 
+</code></pre><p>  例如:scp -r root@192.168.0.101 /home/kimi/test  /tmp/local_dir</p>
+</li>
+<li>上传目录到服务器<pre><code>scp  -r /tmp/local_dir username@servername:remote_dir
+例如：
+scp -r test      root@192.168.0.101:/var/www/   把当前目录下的test目录上传到服务器
+的/var/www/ 目录
+</code></pre></li>
+</ul>
+<ul>
+<li>chown 修改文件所有者<br>chown [-R] 账号名称 文件或目录<br>chown [-R] 账号名称:用户组名称 文件或目录</li>
+</ul>
+<h5 id="linux下的操作命令"><a href="#linux下的操作命令" class="headerlink" title="linux下的操作命令"></a>linux下的操作命令</h5><p>如查看8888端口，则在终端中输入：<br>    lsof -i:8888</p>
+<p>lsb_release -a ,即可列出所有版本信息</p>
+<p>ls -a 查看隐藏信息<br>ls -lh 以文件原本的大小显示而不是以字节的大小显示<br>ls -ld 目录本身的权限<br>mkdir -p 目录/子目录  递归创建目录<br>cd = cd ~  回到家目录<br>cd - 进入上一次的目录<br>rmdir 目录/ 删除非空目录<br>rm fileName 删除文件<br>rm -r directoryName 删除目录<br>rm -rf directory/ 删除目录<br>cp fileName location 复制<br>cp -r directoryName location 复制目录<br>cp -a directoryName location 复制的文件与源文件完全一致<br>mv [原文件或目录] [目标目录] 剪切或move<br>touch 文件名 新建<br>文件搜索<br>    locate 文件名 搜索文件</p>
+<p>dup复制文件<br>dup2是一个原子操作<br>fcntl(filedes.F_DIPFD,0)页也可实现复制<br>chomd +x 赋给执行权限<br>粘诸位S_ISVTX 如果对目录设置了S_ISVTX<br>Full buffer  普通文件<br>Line buffer  设备文件 例如 标准输入输出 输进去一行后回车<br>在获得文件表述符<br>fdopen<br>w+|w+b 是文件长度为0 </p>
+<p>fork 用来创建进程<br>创建一个进程 首先创建的是 task_struct<br>process 内存空间  bss heep  stack</p>
+<p>共享文件 就是文件标志符在共享<br>close-on-exec 文件描述符的状态<br>    若close-on-exec中设置为1 则在可执行文件中文件描述符无效 为0时有效</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wdchang.github.io/2016/05/25/hello-world/" data-id="cj2v8w214000ats9xk8mfecjy" class="article-share-link">Partager</a>
+      <a data-url="https://wdchang.github.io/2017/05/19/linux-operation-order/" data-id="cj2v8w20d0004ts9x1d1148u7" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -110,15 +131,11 @@ Quick">
     
 <nav id="article-nav">
   
-    <a href="/2016/05/25/git/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Récent</strong>
-      <div class="article-nav-title">
-        
-          git
-        
-      </div>
-    </a>
   
+    <a href="/2017/03/09/angularjs-Servlet/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">angularjs_Servlet</div>
+    </a>
   
 </nav>
 
