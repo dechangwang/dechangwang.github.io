@@ -15,7 +15,7 @@
 <meta property="og:description" content="提交包到spark上运行
 
 ./bin/spark-submit –conf spark.neo4j.bolt.password=wang –conf spark.neo4j.bolt.url=bolt://192.168.171.128:7687 –master spark://192.168.171.128:7077 –class cn.edu.wang.neo4j.Main /home/a">
-<meta property="og:updated_time" content="2017-09-29T10:52:06.251Z">
+<meta property="og:updated_time" content="2017-09-29T10:57:15.402Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux operation order">
 <meta name="twitter:description" content="提交包到spark上运行
@@ -60,7 +60,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wdchang.github.io"></form>
@@ -128,6 +128,10 @@ scp -r test      root@192.168.0.101:/var/www/   把当前目录下的test目录�
 </ul>
 </li>
 <li>select instance_name from v$instance 查看当前连接的数据库实例</li>
+<li>oracel中使用替换更新字段<ul>
+<li>使用replace函数，以替换掉value列中所有的’-‘为例<br>-update JF_ATTR_VALUE set VALUE = REPLACE(value ,’-‘,’:’) where VALUE like ‘%-%’;</li>
+</ul>
+</li>
 </ul>
 <p>lsb_release -a ,即可列出所有版本信息</p>
 <p>ls -a 查看隐藏信息<br>ls -lh 以文件原本的大小显示而不是以字节的大小显示<br>ls -ld 目录本身的权限<br>mkdir -p 目录/子目录  递归创建目录<br>cd = cd ~  回到家目录<br>cd - 进入上一次的目录<br>rmdir 目录/ 删除非空目录<br>rm fileName 删除文件<br>rm -r directoryName 删除目录<br>rm -rf directory/ 删除目录<br>cp fileName location 复制<br>cp -r directoryName location 复制目录<br>cp -a directoryName location 复制的文件与源文件完全一致<br>mv [原文件或目录] [目标目录] 剪切或move<br>touch 文件名 新建<br>文件搜索<br>    locate 文件名 搜索文件</p>
@@ -186,7 +190,7 @@ scp -r test      root@192.168.0.101:/var/www/   把当前目录下的test目录�
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Arkiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a></li></ul>
     </div>
@@ -196,7 +200,7 @@ scp -r test      root@192.168.0.101:/var/www/   把当前目录下的test目录�
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Siste innlegg</h3>
     <div class="widget">
       <ul>
         
