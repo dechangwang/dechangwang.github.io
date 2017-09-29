@@ -107,7 +107,23 @@ scp -r test      root@192.168.0.101:/var/www/   把当前目录下的test目录�
 <ul>
 <li>chown 修改文件所有者<br>chown [-R] 账号名称 文件或目录<br>chown [-R] 账号名称:用户组名称 文件或目录</li>
 </ul>
-<h5 id="linux下的操作命令"><a href="#linux下的操作命令" class="headerlink" title="linux下的操作命令"></a>linux下的操作命令</h5><p>如查看8888端口，则在终端中输入：<br>    lsof -i:8888</p>
+<h5 id="linux下的操作命令"><a href="#linux下的操作命令" class="headerlink" title="linux下的操作命令"></a>linux下的操作命令</h5><p>开启端口：<br>firewall-cmd –zone=public –add-port=端口号/tcp –permanent<br>firewall-cmd –reload<br><a href="https://oracle-base.com/articles/linux/linux-firewall-firewalld" target="_blank" rel="external">端口的相关知识参考自</a></p>
+<p>如查看8888端口，则在终端中输入：<br>    lsof -i:8888<br>查看端口占用：ss -lnp|grep 9000</p>
+<h5 id="Linux-下的oracle篇"><a href="#Linux-下的oracle篇" class="headerlink" title="Linux 下的oracle篇"></a>Linux 下的oracle篇</h5><p><em>某些操作是以dba登录到sqlplus</em></p>
+<ul>
+<li>在登录到sqlplus时，需要以oracle用户登录（以用户为oracle为例）<ul>
+<li>su - oracle切换帐户一定要加 “-“，否则在启动监听服务时汇报如下错误：bash:lsnrctl:command not found</li>
+<li>lsnrctl start</li>
+<li>关闭监听lsnrctl stop</li>
+</ul>
+</li>
+<li>shutdown immediate 关闭oracle数据库</li>
+<li>当oracle数据库出现ORA-01102: cannot mount database in EXCLUSIVE mode错误时，可以先用执行指令<ul>
+<li>cd $ORACLE_HOME/dbs<br>fuser -u lkPERSON(这里的person是数据库sid)<br>fuser -k lkPERSON （）</li>
+</ul>
+</li>
+<li>select instance_name from v$instance 查看当前连接的数据库实例</li>
+</ul>
 <p>lsb_release -a ,即可列出所有版本信息</p>
 <p>ls -a 查看隐藏信息<br>ls -lh 以文件原本的大小显示而不是以字节的大小显示<br>ls -ld 目录本身的权限<br>mkdir -p 目录/子目录  递归创建目录<br>cd = cd ~  回到家目录<br>cd - 进入上一次的目录<br>rmdir 目录/ 删除非空目录<br>rm fileName 删除文件<br>rm -r directoryName 删除目录<br>rm -rf directory/ 删除目录<br>cp fileName location 复制<br>cp -r directoryName location 复制目录<br>cp -a directoryName location 复制的文件与源文件完全一致<br>mv [原文件或目录] [目标目录] 剪切或move<br>touch 文件名 新建<br>文件搜索<br>    locate 文件名 搜索文件</p>
 <p>dup复制文件<br>dup2是一个原子操作<br>fcntl(filedes.F_DIPFD,0)页也可实现复制<br>chomd +x 赋给执行权限<br>粘诸位S_ISVTX 如果对目录设置了S_ISVTX<br>Full buffer  普通文件<br>Line buffer  设备文件 例如 标准输入输出 输进去一行后回车<br>在获得文件表述符<br>fdopen<br>w+|w+b 是文件长度为0 </p>
@@ -878,6 +894,7 @@ install 安装jar包到本地仓库
 <h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><ul>
 <li>git push origin —delete dev（分支名，比如dev)</li>
 <li>git push origin :dev</li>
+<li>在本地库中删除关联的某个远程库git remote rm name(这里的<u><em>name</em></u>是git remote add <u>name</u> url)</li>
 </ul>
 <h3 id="本地仓库与远程仓库关联"><a href="#本地仓库与远程仓库关联" class="headerlink" title="本地仓库与远程仓库关联"></a>本地仓库与远程仓库关联</h3><ul>
 <li>在本地新建的库中git init</li>
