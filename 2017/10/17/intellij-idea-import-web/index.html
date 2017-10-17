@@ -3,39 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>maven | Wang.dchang&#39;s blog</title>
+  <title>intellij_idea import web | Wang.dchang&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mvn -vcompile 编译
-test 测试
-package 打包
-clean 删除target
-install 安装jar包到本地仓库
-setting文件&amp;lt;id&amp;gt;maven.net.cn&amp;lt;/id&amp;gt;
-&amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt;
-&amp;lt;name&amp;gt;central mirror in china&amp;lt;/name&amp;">
+  <meta name="description" content="intellij idea导入web项目
+当在使用intellij idea 编写web项目时，如果电脑突然宕机，那么此web项目的相关配置就可能会损坏，此时的解决方案为：
+右键项目名：remove module 
+点检file -&amp;gt; new -&amp;gt; module from existing sources-&amp;gt;找到项目，下一步后选择import module from extern">
 <meta property="og:type" content="article">
-<meta property="og:title" content="maven">
-<meta property="og:url" content="https://dechangwang.github.io/2016/05/26/maven/index.html">
+<meta property="og:title" content="intellij_idea import web">
+<meta property="og:url" content="https://dechangwang.github.io/2017/10/17/intellij-idea-import-web/index.html">
 <meta property="og:site_name" content="Wang.dchang's blog">
-<meta property="og:description" content="mvn -vcompile 编译
-test 测试
-package 打包
-clean 删除target
-install 安装jar包到本地仓库
-setting文件&amp;lt;id&amp;gt;maven.net.cn&amp;lt;/id&amp;gt;
-&amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt;
-&amp;lt;name&amp;gt;central mirror in china&amp;lt;/name&amp;">
-<meta property="og:updated_time" content="2016-05-26T09:35:09.971Z">
+<meta property="og:description" content="intellij idea导入web项目
+当在使用intellij idea 编写web项目时，如果电脑突然宕机，那么此web项目的相关配置就可能会损坏，此时的解决方案为：
+右键项目名：remove module 
+点检file -&amp;gt; new -&amp;gt; module from existing sources-&amp;gt;找到项目，下一步后选择import module from extern">
+<meta property="og:updated_time" content="2017-10-17T11:16:38.387Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="maven">
-<meta name="twitter:description" content="mvn -vcompile 编译
-test 测试
-package 打包
-clean 删除target
-install 安装jar包到本地仓库
-setting文件&amp;lt;id&amp;gt;maven.net.cn&amp;lt;/id&amp;gt;
-&amp;lt;mirrorOf&amp;gt;central&amp;lt;/mirrorOf&amp;gt;
-&amp;lt;name&amp;gt;central mirror in china&amp;lt;/name&amp;">
+<meta name="twitter:title" content="intellij_idea import web">
+<meta name="twitter:description" content="intellij idea导入web项目
+当在使用intellij idea 编写web项目时，如果电脑突然宕机，那么此web项目的相关配置就可能会损坏，此时的解决方案为：
+右键项目名：remove module 
+点检file -&amp;gt; new -&amp;gt; module from existing sources-&amp;gt;找到项目，下一步后选择import module from extern">
   
     <link rel="alternate" href="/atom.xml" title="Wang.dchang&#39;s blog" type="application/atom+xml">
   
@@ -84,10 +72,10 @@ setting文件&amp;lt;id&amp;gt;maven.net.cn&amp;lt;/id&amp;gt;
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-maven" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-intellij-idea-import-web" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/05/26/maven/" class="article-date">
-  <time datetime="2016-05-26T09:32:32.000Z" itemprop="datePublished">2016-05-26</time>
+    <a href="/2017/10/17/intellij-idea-import-web/" class="article-date">
+  <time datetime="2017-10-17T11:05:56.000Z" itemprop="datePublished">2017-10-17</time>
 </a>
     
   </div>
@@ -98,7 +86,7 @@ setting文件&amp;lt;id&amp;gt;maven.net.cn&amp;lt;/id&amp;gt;
         
   
     <h1 class="article-title" itemprop="name">
-      maven
+      intellij_idea import web
     </h1>
   
 
@@ -106,21 +94,20 @@ setting文件&amp;lt;id&amp;gt;maven.net.cn&amp;lt;/id&amp;gt;
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="mvn-v"><a href="#mvn-v" class="headerlink" title="mvn -v"></a>mvn -v</h4><pre><code>compile 编译
-test 测试
-package 打包
-clean 删除target
-install 安装jar包到本地仓库
-</code></pre><h3 id="setting文件"><a href="#setting文件" class="headerlink" title="setting文件"></a>setting文件</h3><pre><code>&lt;id&gt;maven.net.cn&lt;/id&gt;
-&lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
-&lt;name&gt;central mirror in china&lt;/name&gt;
-&lt;url&gt;http://maven.net.cn/content/groups/public&lt;/url&gt;
-</code></pre><p><em>更改仓库目录</em><br>    settting文件中的 55行修改目录 可以将该文件copy到repo目录中可以避免每次更新修改目录</p>
+        <h5 id="intellij-idea导入web项目"><a href="#intellij-idea导入web项目" class="headerlink" title="intellij idea导入web项目"></a>intellij idea导入web项目</h5><ul>
+<li>当在使用intellij idea 编写web项目时，如果电脑突然宕机，那么此web项目的相关配置就可能会损坏，此时的解决方案为：<ul>
+<li>右键项目名：remove module </li>
+<li>点检file -&gt; new -&gt; module from existing sources-&gt;找到项目，下一步后选择import module from external model（maven）接着一直next即可</li>
+<li>做完上述步骤后，web项目仍旧不能运行，此时需要在project structure中选择facets 然后添加web模块就可</li>
+<li>至于导入项目的具体步骤可<a href="http://www.cnblogs.com/leap/p/6251576.html" target="_blank" rel="external">参考这里</a> </li>
+</ul>
+</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dechangwang.github.io/2016/05/26/maven/" data-id="cj8vikbex0006z89xd191tgci" class="article-share-link">Share</a>
+      <a data-url="https://dechangwang.github.io/2017/10/17/intellij-idea-import-web/" data-id="cj8vikbev0004z89xuvui5lgq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -129,19 +116,10 @@ install 安装jar包到本地仓库
     
 <nav id="article-nav">
   
-    <a href="/2016/05/28/regular-expression/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          regular-expression
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/05/25/angularjs/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/05/19/linux-operation-order/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">angularjs</div>
+      <div class="article-nav-title">linux operation order</div>
     </a>
   
 </nav>
